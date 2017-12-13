@@ -19,12 +19,26 @@ public class Candy extends DessertItem {
         this.weight = weight;
         this.pricePerLbs = pricePerLbs;
     }
-
+/**
+ * Print out the information for the receipt
+ * @return the strings for the receipt
+ */
     @Override
     public String toString() {
-        String output = "------------------------------\n";
-        output += this.weight +" " + this.pricePerLbs+ "\n";
-        output += this.name + "\n";
+        String output =  "";
+        //Display the weight and the price per pounds in one line
+        output += this.weight +" lbs. @ $" + DessertShoppe.cents2dollarsAndCents(pricePerLbs)+ " /lb.\n";
+        //NEXT LINE
+        //Display the name 
+        output += this.name;
+        //Turn the cost int in cents to a string in dollars
+        String totalcost = DessertShoppe.cents2dollarsAndCents(getCost());
+        //Print out a space between the name and where the cost needs to be
+        for (int i = this.name.length(); i < DessertShoppe.RECEIPT_WIDTH - totalcost.length()-1; i++){
+            output+=" ";
+        }
+        //Print outt he cost string with the dollar sign
+        output += "$"+totalcost;
         return output;
     }
 
