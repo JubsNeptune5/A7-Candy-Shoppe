@@ -8,18 +8,25 @@
  *
  * @author CHANGE_THIS_TO_YOUR_NAME
  */
-public class IceCream {
-
-    public IceCream(String name, int cost)
-    {
-        
+public class IceCream extends DessertItem{
+private String name;
+private int cost;
+    public IceCream(String name, int cost){
+        this.name = name;
+        this.cost = cost;
     }
 
   
-    public String toString()
-    {
-     
+    public String toString(){
+      String output = "---------\n";
+        output += this.name;
+        return output;
        
+    }
+
+    @Override
+    public int getCost() {
+        return cost;
     }
     
 }
