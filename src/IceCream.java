@@ -27,11 +27,11 @@ private int cost;
         //Turn the cost int in cents to a string in dollars
         String totalcost = DessertShoppe.cents2dollarsAndCents(getCost());
         //Print out a space between the name and where the cost needs to be
-        for (int i = this.name.length(); i < DessertShoppe.RECEIPT_WIDTH - totalcost.length()-1; i++){
+        for (int i = this.name.length(); i < DessertShoppe.RECEIPT_WIDTH - totalcost.length(); i++){
             output+=" ";
         }
         //Print outt he cost string with the dollar sign
-        output += "$"+totalcost;
+        output += totalcost;
         return output;
        
     }

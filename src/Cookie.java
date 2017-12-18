@@ -36,11 +36,11 @@ public class Cookie extends DessertItem {
         //Turn the cost int in cents to a string in dollars
         String totalcost = DessertShoppe.cents2dollarsAndCents(getCost());
         //Print out a space between the name and where the cost needs to be
-        for (int i = this.name.length(); i < DessertShoppe.RECEIPT_WIDTH - totalcost.length()-1; i++){
+        for (int i = this.name.length(); i < DessertShoppe.RECEIPT_WIDTH - totalcost.length(); i++){
             output+=" ";
         }
         //Print outt he cost string with the dollar sign
-        output += "$"+totalcost;
+        output += totalcost;
         return output;
     }
 /**
@@ -49,8 +49,11 @@ public class Cookie extends DessertItem {
  */
     @Override
     public int getCost() {
+        double p = (double)(pricePer12);
         //multiply the number of cokkies by the price per dozen divided by 12
-        return number * (pricePer12/12);
+        //Return the int form of the rounded double
+        return (int)Math.round(number*(p/12));
+        
     }
     
 }
